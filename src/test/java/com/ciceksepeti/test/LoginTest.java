@@ -37,6 +37,15 @@ public class LoginTest extends LoginPage {
         assertEmailError(getText(PASSWORD_ERROR), ERROR_TEXT);
     }
 
+    @Test(testName = "Google ile login olma",
+            dataProvider = "googleLogin")
+    public void loginWithGoogleAccount(String mail, String password) {
+        clickLoginWithGoogle();
+        fillGoogleEmailAndGoForward(mail);
+        fillGooglePasswordAndGoForward(password);
+        assertMainPage();
+    }
+
     @Test(testName = "Şifremi unuttum alanı kontrolü",
             dataProvider = "forgetPassword")
     public void forgotPassword(String mail) {
