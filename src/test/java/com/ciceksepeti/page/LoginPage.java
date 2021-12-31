@@ -4,6 +4,11 @@ import org.testng.annotations.DataProvider;
 import static com.ciceksepeti.element.LoginPageElements.*;
 import static com.ciceksepeti.constant.Constants.*;
 
+/**
+ * Created by Fatih Can Oklay
+ * Date: 30.12.2021
+ */
+
 public class LoginPage extends BasePage{
 
     public void fillWithCorrectEmail(String mail) {
@@ -46,6 +51,18 @@ public class LoginPage extends BasePage{
         }
     }
 
+    public void fillWithMissingPassword(String password) {
+        try {
+            clear(PASSWORD);
+            sendKeys(PASSWORD, password);
+            logger.info("Eksik şifre girildi");
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            logger.info("Şifre girilemedi!");
+            assertFail();
+        }
+    }
+
     public void clickSigninButton() {
         try {
             clickElement(SIGNIN_BUTTON);
@@ -75,11 +92,24 @@ public class LoginPage extends BasePage{
         logger.info("Login olundu.");
     }
 
+    public void assertEmailError(String error, String errorText) {
+        assertEquals(error, errorText);
+        logger.info("Email login uyarısı kontrol edildi.");
+    }
+
     @DataProvider
     public Object[][] correctData() {
-        Object[][] data = new Object[1][2];
+        Object[][] data = new Object[2][2];
         data[0][0] = "ciceksepetitest0@gmail.com";
         data[0][1] = "Ciceksepetitest0.";
+        return data;
+    }
+
+    @DataProvider
+    public Object[][] wrongPassword() {
+        Object[][] data = new Object[1][2];
+        data[0][0] = "ciceksepetitest0@gmail.com";
+        data[0][1] = "Ciceksepetitest0";
         return data;
     }
 }

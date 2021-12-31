@@ -12,6 +12,11 @@ import org.testng.annotations.BeforeSuite;
 import java.net.MalformedURLException;
 import java.time.Duration;
 
+/**
+ * Created by Fatih Can Oklay
+ * Date: 30.12.2021
+ */
+
 public class BaseTest {
 
     //protected static RemoteWebDriver driver; //for docker

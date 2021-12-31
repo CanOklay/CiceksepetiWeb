@@ -7,6 +7,11 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+/**
+ * Created by Fatih Can Oklay
+ * Date: 30.12.2021
+ */
+
 public class Listener implements ITestListener {
 
     BasePage basePage = new BasePage();

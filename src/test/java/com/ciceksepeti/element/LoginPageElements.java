@@ -2,6 +2,11 @@ package com.ciceksepeti.element;
 
 import org.openqa.selenium.By;
 
+/**
+ * Created by Fatih Can Oklay
+ * Date: 30.12.2021
+ */
+
 public class LoginPageElements {
 
     public static final By EMAIL = By.id("EmailLogin");
