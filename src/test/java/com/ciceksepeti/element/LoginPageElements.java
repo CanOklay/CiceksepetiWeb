@@ -11,4 +11,6 @@ public class LoginPageElements {
     public static final By EYE_ICON = By.cssSelector("span[class='form-group__show-type js-show-type icon-eye']");
     public static final By SIGNIN_BUTTON = By.cssSelector("button[class='btn btn-primary btn-lg pull-right login__btn js-login-button']");
     public static final By MAINPAGE = By.xpath("//span[@class='district-search-button__text js-district-search-button-text empty']");
+    public static final By POPUP = By.cssSelector("div[class='modal-body']");
+    public static final By POPUP_OK_BUTTON = By.cssSelector("button[class='btn btn-primary']");
 }

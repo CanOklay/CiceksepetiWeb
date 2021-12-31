@@ -34,6 +34,18 @@ public class LoginPage extends BasePage{
         }
     }
 
+    public void fillWithWrongPassword(String password) {
+        try {
+            clear(PASSWORD);
+            sendKeys(PASSWORD, password);
+            logger.info("Yanlış şifre girildi");
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            logger.info("Şifre girilemedi!");
+            assertFail();
+        }
+    }
+
     public void clickSigninButton() {
         try {
             clickElement(SIGNIN_BUTTON);
@@ -41,6 +53,19 @@ public class LoginPage extends BasePage{
         } catch (Exception e) {
             logger.error(e.getMessage());
             logger.info("Login olunamadı!");
+            assertFail();
+        }
+    }
+
+    public void closePopup() {
+        try {
+            assertEquals(getText(POPUP), POPUP_TEXT);
+            logger.info("Popup text'i kontrol edildi.");
+            clickElement(POPUP_OK_BUTTON);
+            logger.info("Popup'daki ok butonuna tıklandı.");
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            logger.info("Popup kapatılamadı!");
             assertFail();
         }
     }
