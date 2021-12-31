@@ -37,6 +37,15 @@ public class LoginTest extends LoginPage {
         assertEmailError(getText(PASSWORD_ERROR), ERROR_TEXT);
     }
 
+    @Test(testName = "Şifremi unuttum alanı kontrolü",
+            dataProvider = "forgetPassword")
+    public void forgotPassword(String mail) {
+        clickForgotPassword();
+        fillForgotPasswordMail(mail);
+        clickForgotPasswordSendButton();
+        assertForgotPassword(getText(FORGOT_PASSWORD_MESSAGE), FORGOT_PASSWORD_TEXT);
+    }
+
     @Test(testName = "Başarılı login",
           dataProvider = "correctData",
           priority = 1)

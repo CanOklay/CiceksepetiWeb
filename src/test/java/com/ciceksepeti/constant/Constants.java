@@ -11,4 +11,5 @@ public class Constants {
     public static final String POPUP_TEXT = "E-mail address or password is incorrect. Please check your information and try again.";
     public static final String EMAIL_ERROR_TEXT = "Please enter a valid e-mail address.";
     public static final String ERROR_TEXT = "Required field.";
+    public static final String FORGOT_PASSWORD_TEXT = "You will receive an e-mail from us with instructions for resetting your password.";
 }
