@@ -12,6 +12,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Created by Fatih Can Oklay
+ * Date: 30.12.2021
+ */
+
 public class ExtentReporterNG {
 
     private ExtentReports extent;
