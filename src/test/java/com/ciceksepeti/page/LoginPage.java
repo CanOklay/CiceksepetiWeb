@@ -122,6 +122,43 @@ public class LoginPage extends BasePage{
         }
     }
 
+    public void clickLoginWithGoogle() {
+        try {
+            clickElement(GOOGLE_LOGIN);
+            logger.info("Google ile login olma butonuna tıklandı.");
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            logger.info("Google ile login olma butonuna tıklanamadı!");
+            assertFail();
+        }
+    }
+
+    public void fillGoogleEmailAndGoForward(String email) {
+        try {
+            sendKeys(GOOGLE_LOGIN_EMAIL, email);
+            logger.info("Google ile login olmada email girilir.");
+            clickElement(GOOGLE_LOGIN_FORWARD);
+            logger.info("İleri butonuna tıklandı.");
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            logger.info("Google ile login olmada email girilemedi.!");
+            assertFail();
+        }
+    }
+
+    public void fillGooglePasswordAndGoForward(String password) {
+        try {
+            sendKeys(GOOGLE_LOGIN_PASSWORD, password);
+            logger.info("Google ile login olmada email girilir.");
+            clickElement(GOOGLE_LOGIN_FORWARD);
+            logger.info("İleri butonuna tıklandı.");
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            logger.info("Google ile login olmada email girilemedi.!");
+            assertFail();
+        }
+    }
+
     public void assertMainPage() {
         assertEquals(getText(MAINPAGE), MAINPAGE_TEXT);
         logger.info("Login olundu.");
