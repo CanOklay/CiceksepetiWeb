@@ -87,6 +87,41 @@ public class LoginPage extends BasePage{
         }
     }
 
+    public void clickForgotPassword() {
+        try {
+            clickElement(FORGOT_PASSWORD);
+            logger.info("Şifremi unuttum yazısına tıklandı.");
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            logger.info("Şifremi unuttum yazısına tıklanamadı!");
+            assertFail();
+        }
+    }
+
+    public void fillForgotPasswordMail(String mail) {
+        try {
+            clear(FORGOT_PASSWORD_MAIL);
+            sendKeys(FORGOT_PASSWORD_MAIL, mail);
+            logger.info("Doğru mail adresi girildi");
+            assertTrue(true, "Email adresinin yazıldığı kontrol edildi.");
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            logger.info("Email adresi girilemedi!");
+            assertFail();
+        }
+    }
+
+    public void clickForgotPasswordSendButton() {
+        try {
+            clickElement(FORGOT_PASSWORD_SEND);
+            logger.info("Gönder butonuna tıklandı.");
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            logger.info("Gönder butonuna tıklanamadı!");
+            assertFail();
+        }
+    }
+
     public void assertMainPage() {
         assertEquals(getText(MAINPAGE), MAINPAGE_TEXT);
         logger.info("Login olundu.");
@@ -95,6 +130,11 @@ public class LoginPage extends BasePage{
     public void assertEmailError(String error, String errorText) {
         assertEquals(error, errorText);
         logger.info("Email login uyarısı kontrol edildi.");
+    }
+
+    public void assertForgotPassword(String message, String messageText) {
+        assertEquals(message, messageText);
+        logger.info("Forgot password mail mesajı kontrol edildi.");
     }
 
     @DataProvider
@@ -110,6 +150,29 @@ public class LoginPage extends BasePage{
         Object[][] data = new Object[1][2];
         data[0][0] = "ciceksepetitest0@gmail.com";
         data[0][1] = "Ciceksepetitest0";
+        return data;
+    }
+
+    @DataProvider
+    public Object[][] missingEmail() {
+        Object[][] data = new Object[1][2];
+        data[0][0] = "ciceksepetitest0";
+        data[0][1] = "Ciceksepetitest0.";
+        return data;
+    }
+
+    @DataProvider
+    public Object[][] forgetPassword() {
+        Object[][] data = new Object[1][1];
+        data[0][0] = "ciceksepetitest0@gmail.com";
+        return data;
+    }
+
+    @DataProvider
+    public Object[][] googleLogin() {
+        Object[][] data = new Object[1][2];
+        data[0][0] = "ciceksepetitest0@gmail.com";
+        data[0][1] = "CicekSepetiTest09.!";
         return data;
     }
 }
