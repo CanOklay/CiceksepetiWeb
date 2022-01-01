@@ -1,9 +1,11 @@
 package com.ciceksepeti.test;
 
 import com.ciceksepeti.page.LoginPage;
-import static com.ciceksepeti.element.LoginPageElements.*;
-import static com.ciceksepeti.constant.Constants.*;
 import org.testng.annotations.Test;
+
+import static com.ciceksepeti.constant.Constants.ERROR_TEXT;
+import static com.ciceksepeti.element.LoginPageElements.EMAIL_ERROR;
+import static com.ciceksepeti.element.LoginPageElements.PASSWORD_ERROR;
 
 /**
  * Created by Fatih Can Oklay
@@ -27,14 +29,14 @@ public class LoginTest extends LoginPage {
         fillWithCorrectEmail(correctEmail);
         fillWithMissingPassword(wrongPassword);
         clickSigninButton();
-        assertEmailError(getText(EMAIL_ERROR), EMAIL_ERROR_TEXT);
+        assertEmailError();
     }
 
     @Test(testName = "Boş email ve şifre ile login")
     public void loginWithEmptyEmailAndPassword() {
         clickSigninButton();
-        assertEmailError(getText(EMAIL_ERROR), ERROR_TEXT);
-        assertEmailError(getText(PASSWORD_ERROR), ERROR_TEXT);
+        assertEmptyFieldError(getText(EMAIL_ERROR), ERROR_TEXT);
+        assertEmptyFieldError(getText(PASSWORD_ERROR), ERROR_TEXT);
     }
 
     @Test(testName = "Google ile login olma",
@@ -52,11 +54,11 @@ public class LoginTest extends LoginPage {
         clickForgotPassword();
         fillForgotPasswordMail(mail);
         clickForgotPasswordSendButton();
-        assertForgotPassword(getText(FORGOT_PASSWORD_MESSAGE), FORGOT_PASSWORD_TEXT);
+        assertForgotPassword();
     }
 
     @Test(testName = "Başarılı login",
-          dataProvider = "correctData")
+            dataProvider = "correctData")
     public void successfulLogin(String correctEmail, String correctPassword) {
         fillWithCorrectEmail(correctEmail);
         fillWithCorrectPassword(correctPassword);

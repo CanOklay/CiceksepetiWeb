@@ -21,7 +21,7 @@ public class LoginPageElements {
     public static final By FORGOT_PASSWORD = By.cssSelector("a[class='login__forgot-password js-forgot-password']");
     public static final By FORGOT_PASSWORD_MAIL = By.id("Mail");
     public static final By FORGOT_PASSWORD_SEND = By.cssSelector("button[class='btn btn-lg btn-primary form-password-recovery__btn js-password-recovery-button']");
-    public static final By FORGOT_PASSWORD_MESSAGE = By.xpath("/html/body/main/div/div[1]/div/div");
+    public static final By FORGOT_PASSWORD_MESSAGE = By.cssSelector("div[class='password-recovery-result js-password-recovery-result is-hidden']");
     public static final By GOOGLE_LOGIN = By.cssSelector("span[class='login__social-text login__social-google-text']");
     public static final By GOOGLE_LOGIN_EMAIL = By.id("identifierId");
     public static final By GOOGLE_LOGIN_FORWARD = By.xpath("//span[@class='VfPpkd-vQzf8d'][contains(text(), 'İleri')]");

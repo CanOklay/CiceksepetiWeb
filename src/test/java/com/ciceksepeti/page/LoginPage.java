@@ -1,15 +1,16 @@
 package com.ciceksepeti.page;
+
 import org.testng.annotations.DataProvider;
 
-import static com.ciceksepeti.element.LoginPageElements.*;
 import static com.ciceksepeti.constant.Constants.*;
+import static com.ciceksepeti.element.LoginPageElements.*;
 
 /**
  * Created by Fatih Can Oklay
  * Date: 30.12.2021
  */
 
-public class LoginPage extends BasePage{
+public class LoginPage extends BasePage {
 
     public void fillWithCorrectEmail(String mail) {
         try {
@@ -164,13 +165,23 @@ public class LoginPage extends BasePage{
         logger.info("Login olundu.");
     }
 
-    public void assertEmailError(String error, String errorText) {
+    public void assertEmailError() {
+        String error = getText(EMAIL_ERROR);
+        logger.info("Email login uyarısı: " + error);
+        assertEquals(error, EMAIL_ERROR_TEXT);
+        logger.info("Email login uyarısı kontrol edildi.");
+    }
+
+    public void assertEmptyFieldError(String error, String errorText) {
+        logger.info("Email login uyarısı: " + error);
         assertEquals(error, errorText);
         logger.info("Email login uyarısı kontrol edildi.");
     }
 
-    public void assertForgotPassword(String message, String messageText) {
-        assertEquals(message, messageText);
+    public void assertForgotPassword() {
+        String message = getText(FORGOT_PASSWORD_MESSAGE);
+        logger.info("Forgot password message: " + message);
+        assertEquals(message, FORGOT_PASSWORD_TEXT);
         logger.info("Forgot password mail mesajı kontrol edildi.");
     }
 

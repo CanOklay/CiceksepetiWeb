@@ -19,7 +19,7 @@
     <testng.version>7.4.0</testng.version>
     <selenium.version>4.1.1</selenium.version>
     <bonigarcia.version>5.0.3</bonigarcia.version>
-    <log4j.version>1.7.30</log4j.version>
+    <log4j.version>1.7.32</log4j.version>
     <mavencleanplugin.version>3.1.0</mavencleanplugin.version>
     <mavenresourceplugin.version>3.0.2</mavenresourceplugin.version>
     <mavencompilerplugin.version>3.8.1</mavencompilerplugin.version>
