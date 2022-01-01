@@ -17,7 +17,7 @@ import java.util.Map;
  * Date: 30.12.2021
  */
 
-public class ExtentReporterNG {
+public class ExtentReporterNG implements IReporter {
 
     private ExtentReports extent;
     ExtentHtmlReporter htmlReporter;

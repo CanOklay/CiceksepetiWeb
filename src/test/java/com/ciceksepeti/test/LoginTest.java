@@ -56,8 +56,7 @@ public class LoginTest extends LoginPage {
     }
 
     @Test(testName = "Başarılı login",
-          dataProvider = "correctData",
-          priority = 1)
+          dataProvider = "correctData")
     public void successfulLogin(String correctEmail, String correctPassword) {
         fillWithCorrectEmail(correctEmail);
         fillWithCorrectPassword(correctPassword);

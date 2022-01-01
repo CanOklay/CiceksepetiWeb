@@ -16,7 +16,6 @@ public class LoginPage extends BasePage{
             clear(EMAIL);
             sendKeys(EMAIL, mail);
             logger.info("Doğru kullanıcı adı girildi");
-            assertTrue(true, "Email adresinin yazıldığı kontrol edildi.");
         } catch (Exception e) {
             logger.error(e.getMessage());
             logger.info("Email adresi girilemedi!");
@@ -135,6 +134,7 @@ public class LoginPage extends BasePage{
 
     public void fillGoogleEmailAndGoForward(String email) {
         try {
+            wait(2);
             sendKeys(GOOGLE_LOGIN_EMAIL, email);
             logger.info("Google ile login olmada email girilir.");
             clickElement(GOOGLE_LOGIN_FORWARD);
@@ -176,7 +176,7 @@ public class LoginPage extends BasePage{
 
     @DataProvider
     public Object[][] correctData() {
-        Object[][] data = new Object[2][2];
+        Object[][] data = new Object[1][2];
         data[0][0] = "ciceksepetitest0@gmail.com";
         data[0][1] = "Ciceksepetitest0.";
         return data;

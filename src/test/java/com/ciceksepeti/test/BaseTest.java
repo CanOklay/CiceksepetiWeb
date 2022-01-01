@@ -6,8 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 
 import java.net.MalformedURLException;
 import java.time.Duration;
@@ -25,7 +24,7 @@ public class BaseTest {
     protected static String baseUrl = "https://www.lolaflora.com/login";
     protected static WebDriverWait webDriverWait;
 
-    @BeforeSuite
+    @BeforeMethod
     public void setup() throws MalformedURLException {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -42,7 +41,7 @@ public class BaseTest {
         webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
-    @AfterSuite
+    @AfterMethod
     public void after() {
         if (driver != null) {
             driver.close();
