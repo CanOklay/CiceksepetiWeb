@@ -134,6 +134,7 @@ public class LoginPage extends BasePage{
 
     public void fillGoogleEmailAndGoForward(String email) {
         try {
+            wait(2);
             sendKeys(GOOGLE_LOGIN_EMAIL, email);
             logger.info("Google ile login olmada email girilir.");
             clickElement(GOOGLE_LOGIN_FORWARD);
