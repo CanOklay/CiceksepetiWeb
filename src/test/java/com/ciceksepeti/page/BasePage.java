@@ -80,11 +80,11 @@ public class BasePage extends BaseTest {
     }
 
     public void assertTrue(boolean condition, String message) {
-        Assert.assertTrue(condition,message);
+        Assert.assertTrue(condition, message);
     }
 
     public void assertFalse(boolean condition, String message) {
-        Assert.assertFalse(condition,message);
+        Assert.assertFalse(condition, message);
     }
 
     public void assertEqualsInteger(String first, int second) {
