@@ -14,7 +14,7 @@ import static com.ciceksepeti.element.LoginPageElements.PASSWORD_ERROR;
 
 public class LoginTest extends LoginPage {
 
-    @Test(testName = "Yanlış şifre ile login",
+    @Test(testName = "Login with wrong password",
             dataProvider = "wrongPassword")
     public void loginWithWrongPassword(String correctEmail, String wrongPassword) {
         fillWithCorrectEmail(correctEmail);
@@ -23,7 +23,7 @@ public class LoginTest extends LoginPage {
         closePopup();
     }
 
-    @Test(testName = "Eksik şifre ile login",
+    @Test(testName = "Login with missing email",
             dataProvider = "missingEmail")
     public void loginWithMissingEmail(String correctEmail, String wrongPassword) {
         fillWithCorrectEmail(correctEmail);
@@ -32,14 +32,14 @@ public class LoginTest extends LoginPage {
         assertEmailError();
     }
 
-    @Test(testName = "Boş email ve şifre ile login")
+    @Test(testName = "Login with empty email and password")
     public void loginWithEmptyEmailAndPassword() {
         clickSigninButton();
         assertEmptyFieldError(getText(EMAIL_ERROR), ERROR_TEXT);
         assertEmptyFieldError(getText(PASSWORD_ERROR), ERROR_TEXT);
     }
 
-    @Test(testName = "Google ile login olma",
+    @Test(testName = "Login with google account",
             dataProvider = "googleLogin")
     public void loginWithGoogleAccount(String mail, String password) {
         clickLoginWithGoogle();
@@ -48,7 +48,7 @@ public class LoginTest extends LoginPage {
         assertMainPage();
     }
 
-    @Test(testName = "Şifremi unuttum alanı kontrolü",
+    @Test(testName = "Check forgot password",
             dataProvider = "forgetPassword")
     public void forgotPassword(String mail) {
         clickForgotPassword();
@@ -57,7 +57,7 @@ public class LoginTest extends LoginPage {
         assertForgotPassword();
     }
 
-    @Test(testName = "Başarılı login",
+    @Test(testName = "Successful login",
             dataProvider = "correctData")
     public void successfulLogin(String correctEmail, String correctPassword) {
         fillWithCorrectEmail(correctEmail);
