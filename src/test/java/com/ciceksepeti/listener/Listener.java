@@ -12,9 +12,8 @@ import org.testng.ITestResult;
  * Date: 30.12.2021
  */
 
-public class Listener implements ITestListener {
+public class Listener extends BasePage implements ITestListener {
 
-    BasePage basePage = new BasePage();
     Logger logger = LogManager.getLogger(Listener.class.getName());
 
     @Override
@@ -30,7 +29,7 @@ public class Listener implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
-        basePage.screenShot("failScreenShot");
+        screenShot("failScreenShot");
         ITestListener.super.onTestFailure(result);
     }
 

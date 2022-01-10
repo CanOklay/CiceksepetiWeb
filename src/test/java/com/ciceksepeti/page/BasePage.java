@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
  * Date: 30.12.2021
  */
 
-public class BasePage extends BaseTest {
+public abstract class BasePage extends BaseTest {
 
     Logger logger = LogManager.getLogger(Logs.class.getName());
 

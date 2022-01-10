@@ -2,17 +2,11 @@ package com.ciceksepeti.test;
 
 import com.ciceksepeti.config.ConfigFileReader;
 import com.ciceksepeti.utility.DriverFactory;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.time.Duration;
 
 /**
