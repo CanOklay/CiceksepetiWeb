@@ -15,6 +15,7 @@ import org.testng.ITestResult;
 public class Listener extends BasePage implements ITestListener {
 
     Logger logger = LogManager.getLogger(Listener.class.getName());
+    RetryAnalyzer retryAnalyzer = new RetryAnalyzer();
 
     @Override
     public void onTestStart(ITestResult result) {

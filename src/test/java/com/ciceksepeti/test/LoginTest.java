@@ -1,5 +1,6 @@
 package com.ciceksepeti.test;
 
+import com.ciceksepeti.listener.RetryAnalyzer;
 import com.ciceksepeti.page.LoginPage;
 import org.testng.annotations.Test;
 
@@ -15,7 +16,8 @@ import static com.ciceksepeti.element.LoginPageElements.PASSWORD_ERROR;
 public class LoginTest extends LoginPage {
 
     @Test(testName = "Login with wrong password",
-            dataProvider = "wrongPassword")
+            dataProvider = "wrongPassword",
+            retryAnalyzer = RetryAnalyzer.class)
     public void loginWithWrongPassword(String correctEmail, String wrongPassword) {
         fillWithCorrectEmail(correctEmail);
         fillWithWrongPassword(wrongPassword);
@@ -24,7 +26,8 @@ public class LoginTest extends LoginPage {
     }
 
     @Test(testName = "Login with missing email",
-            dataProvider = "missingEmail")
+            dataProvider = "missingEmail",
+            retryAnalyzer = RetryAnalyzer.class)
     public void loginWithMissingEmail(String correctEmail, String wrongPassword) {
         fillWithCorrectEmail(correctEmail);
         fillWithMissingPassword(wrongPassword);
@@ -32,7 +35,8 @@ public class LoginTest extends LoginPage {
         assertEmailError();
     }
 
-    @Test(testName = "Login with empty email and password")
+    @Test(testName = "Login with empty email and password",
+            retryAnalyzer = RetryAnalyzer.class)
     public void loginWithEmptyEmailAndPassword() {
         clickSigninButton();
         assertEmptyFieldError(getText(EMAIL_ERROR), ERROR_TEXT);
@@ -40,7 +44,8 @@ public class LoginTest extends LoginPage {
     }
 
     @Test(testName = "Login with google account",
-            dataProvider = "googleLogin")
+            dataProvider = "googleLogin",
+            retryAnalyzer = RetryAnalyzer.class)
     public void loginWithGoogleAccount(String mail, String password) {
         clickLoginWithGoogle();
         fillGoogleEmailAndGoForward(mail);
@@ -49,7 +54,8 @@ public class LoginTest extends LoginPage {
     }
 
     @Test(testName = "Check forgot password",
-            dataProvider = "forgetPassword")
+            dataProvider = "forgetPassword",
+            retryAnalyzer = RetryAnalyzer.class)
     public void forgotPassword(String mail) {
         clickForgotPassword();
         fillForgotPasswordMail(mail);
@@ -58,7 +64,8 @@ public class LoginTest extends LoginPage {
     }
 
     @Test(testName = "Successful login",
-            dataProvider = "correctData")
+            dataProvider = "correctData",
+            retryAnalyzer = RetryAnalyzer.class)
     public void successfulLogin(String correctEmail, String correctPassword) {
         fillWithCorrectEmail(correctEmail);
         fillWithCorrectPassword(correctPassword);

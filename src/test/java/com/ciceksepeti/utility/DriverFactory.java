@@ -16,7 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public abstract class DriverFactory {
+public class DriverFactory {
 
     //protected static RemoteWebDriver driver; //for docker
     ConfigFileReader configFileReader = new ConfigFileReader();
