@@ -14,7 +14,7 @@ import java.time.Duration;
  * Date: 30.12.2021
  */
 
-public abstract class BaseTest extends DriverFactory {
+public class BaseTest extends DriverFactory {
 
     ConfigFileReader configFileReader = new ConfigFileReader();
 

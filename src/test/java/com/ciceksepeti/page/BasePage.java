@@ -69,7 +69,7 @@ public abstract class BasePage extends BaseTest {
         String date = dateFormat.format(new Date());
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(scrFile, new File(System.getProperty("user.dir") + "/report/" + text + "(" + date + ")" + ".png"));
+            FileUtils.copyFile(scrFile, new File(System.getProperty("user.dir") + "/report/screenshot/" + text + "(" + date + ")" + ".png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
